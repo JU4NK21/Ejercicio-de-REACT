@@ -11,6 +11,8 @@ import Newsletter from './componentesTaller/Newsletter';
 import HoverButtons from './componentesTaller/HoverButtons';
 import TailwindCard from './componentesTaller/TailwindCard';
 import GenderSelector from './componentesTaller/GenderSelector';
+import { MensajeTexto } from './mensaje/mensaje';
+import { Saludo } from './mensaje/saludo';
 
 function App() {
 
@@ -43,6 +45,10 @@ function App() {
       <HoverButtons />
       <TailwindCard cardInfo={datosDeLaTarjetaAzul} />
       <GenderSelector />
+
+      <MensajeTexto />
+      <MensajeTexto />
+      <Saludo />
 
     </div>
   );

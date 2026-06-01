@@ -1,30 +1,32 @@
+import { useState } from "react";
 import './estilos.css';
 
-//1. crear la funcion
+// 1. Definir la función
 function Newsletter() {
-    const info = {
-        titulo: "NEWSLETTER",
-        texto: "Get existential crisis delivered straight to your inbox every week.",
-        inputTexto: "Your life",
-        botonTexto: "CLICK ME"
-    };
+  // 2. Estado para el correo
+  const [correo, setCorreo] = useState("");
 
-    //2. retornar el html
-    return (
-        <div className="caja-correo">
-            <h2 className="titulo-correo">{info.titulo}</h2>
-            <p className="texto-correo">{info.texto}</p>
-            <input 
-                type="text" 
-                placeholder={info.inputTexto} 
-                className="entrada-correo" 
-            />
-            <button className="boton-correo">
-                {info.botonTexto}
-            </button>
-        </div>
-    );
+  const actualizarCorreo = (evento) => {
+    setCorreo(evento.target.value);
+  };
+
+  // Retornar el HTML
+  return (
+    <div className="caja-correo">
+      <h2 className="titulo-correo">NEWSLETTER</h2>
+      <p className="texto-correo">Suscríbete con: {correo}</p>
+      <input 
+        type="text" 
+        placeholder="Tu correo aquí" 
+        className="entrada-correo" 
+        onInput={actualizarCorreo} 
+      />
+      <button className="boton-correo" onClick={() => alert("Registrado: " + correo)}>
+        CLICK ME
+      </button>
+    </div>
+  );
 }
 
-//3. Exportar el componente
+// 3. Exportar por default
 export default Newsletter;

@@ -1,32 +1,24 @@
+import { useState } from "react";
 import './estilos.css';
 
-//1. crear la funcion
+// 1. Definir la función
 function GenderSelector() {
-    const opciones = [
-        { id: 1, icono: '♂', color: 'hombre' },
-        { id: 2, icono: '♀', color: 'mujer' },
-        { id: 3, icono: '🔀', color: 'aleatorio' },
-        { id: 4, icono: '?', color: 'pregunta' },
-    ];
+  // 2. Estado para el género elegido
+  const [genero, setGenero] = useState("...");
 
-    //2. retornar el html
-    return (
-        <div className="caja-genero">
-            <p className="titulo-genero">
-                Please select your gender
-            </p>
-            <div className="fila-botones">
-                {opciones.map(function(opc) {
-                    return (
-                        <button key={opc.id} className={`boton-circulo ${opc.color}`}>
-                            {opc.icono}
-                        </button>
-                    );
-                })}
-            </div>
-        </div>
-    );
+  // Retornar el HTML
+  return (
+    <div className="caja-genero">
+      <p className="titulo-genero">Seleccionado: {genero}</p>
+      <div className="fila-botones">
+        <button className="boton-circulo hombre" onClick={() => setGenero("Hombre ♂")}>♂</button>
+        <button className="boton-circulo mujer" onClick={() => setGenero("Mujer ♀")}>♀</button>
+        <button className="boton-circulo aleatorio" onClick={() => setGenero("Aleatorio 🔀")}>🔀</button>
+        <button className="boton-circulo pregunta" onClick={() => setGenero("Desconocido ?")}>?</button>
+      </div>
+    </div>
+  );
 }
 
-//3. Exportar el componente
+// 3. Exportar por default
 export default GenderSelector;
